@@ -37,6 +37,8 @@ class get_evapotranspiration:
 
         if region == "humid":
             pet = self.pt_coeff_humid * (slope_svp * net_rad / (slope_svp + psy_cons))
-        else:
+        elif region == "arid":
             pet = self.pt_coeff_arid * (slope_svp * net_rad / (slope_svp + psy_cons))
+        else:
+            raise ValueError("only humid and arid are valid regions!")
         return pet
